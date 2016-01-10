@@ -406,7 +406,7 @@ typedef NS_ENUM(NSInteger, YTPlayerError) {
  * @param startSeconds Time in seconds to start the video when YTPlayerView::playVideo is called.
  * @param suggestedQuality YTPlaybackQuality value suggesting a playback quality.
  */
-- (void)cuePlaylistByVideos:(NSArray *)videoIds
+- (void)cuePlaylistByVideos:(NSArray<NSString*> *)videoIds
                       index:(int)index
                startSeconds:(float)startSeconds
            suggestedQuality:(YTPlaybackQuality)suggestedQuality;
@@ -440,7 +440,7 @@ typedef NS_ENUM(NSInteger, YTPlayerError) {
  * @param startSeconds Time in seconds to start the video when YTPlayerView::playVideo is called.
  * @param suggestedQuality YTPlaybackQuality value suggesting a playback quality.
  */
-- (void)loadPlaylistByVideos:(NSArray *)videoIds
+- (void)loadPlaylistByVideos:(NSArray<NSString*> *)videoIds
                        index:(int)index
                 startSeconds:(float)startSeconds
             suggestedQuality:(YTPlaybackQuality)suggestedQuality;
@@ -508,7 +508,7 @@ typedef NS_ENUM(NSInteger, YTPlayerError) {
  *
  * @return An NSArray containing available playback rates. nil if there is an error.
  */
-- (NSArray *)availablePlaybackRates;
+- (NSArray<NSNumber*> *)availablePlaybackRates;
 
 #pragma mark - Setting playback behavior for playlists
 
@@ -645,7 +645,7 @@ typedef NS_ENUM(NSInteger, YTPlayerError) {
  *
  * @return An NSArray containing all the video IDs in the current playlist. |nil| on error.
  */
-- (NSArray *)playlist;
+- (NSArray<NSString*> *)playlist;
 
 /**
  * Returns the 0-based index of the currently playing item in the playlist.
