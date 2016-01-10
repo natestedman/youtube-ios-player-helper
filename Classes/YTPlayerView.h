@@ -14,6 +14,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class YTPlayerView;
 
 /** These enums represent the state of the current video in the player. */
@@ -121,7 +123,7 @@ typedef NS_ENUM(NSInteger, YTPlayerError) {
 @property(nonatomic, strong, readonly) UIWebView *webView;
 
 /** A delegate to be notified on playback events. */
-@property(nonatomic, weak) id<YTPlayerViewDelegate> delegate;
+@property(nullable, nonatomic, weak) id<YTPlayerViewDelegate> delegate;
 
 /**
  * This method loads the player with the given video ID.
@@ -173,7 +175,7 @@ typedef NS_ENUM(NSInteger, YTPlayerError) {
  * @param playerVars An NSDictionary of player parameters.
  * @return YES if player has been configured correctly, NO otherwise.
  */
-- (BOOL)loadWithVideoId:(NSString *)videoId playerVars:(NSDictionary *)playerVars;
+- (BOOL)loadWithVideoId:(NSString *)videoId playerVars:(nullable NSDictionary *)playerVars;
 
 /**
  * This method loads the player with the given playlist ID and player variables. Player variables
@@ -197,7 +199,7 @@ typedef NS_ENUM(NSInteger, YTPlayerError) {
  * @param playerVars An NSDictionary of player parameters.
  * @return YES if player has been configured correctly, NO otherwise.
  */
-- (BOOL)loadWithPlaylistId:(NSString *)playlistId playerVars:(NSDictionary *)playerVars;
+- (BOOL)loadWithPlaylistId:(NSString *)playlistId playerVars:(nullable NSDictionary *)playerVars;
 
 - (BOOL)loadWithPlayerParams:(NSDictionary *)additionalPlayerParams;
 
@@ -508,7 +510,7 @@ typedef NS_ENUM(NSInteger, YTPlayerError) {
  *
  * @return An NSArray containing available playback rates. nil if there is an error.
  */
-- (NSArray<NSNumber*> *)availablePlaybackRates;
+- (nullable NSArray<NSNumber*> *)availablePlaybackRates;
 
 #pragma mark - Setting playback behavior for playlists
 
@@ -597,7 +599,7 @@ typedef NS_ENUM(NSInteger, YTPlayerError) {
  *
  * @return An NSArray containing available playback quality levels.
  */
-- (NSArray *)availableQualityLevels;
+- (nullable NSArray *)availableQualityLevels;
 
 #pragma mark - Retrieving video information
 
@@ -645,7 +647,7 @@ typedef NS_ENUM(NSInteger, YTPlayerError) {
  *
  * @return An NSArray containing all the video IDs in the current playlist. |nil| on error.
  */
-- (NSArray<NSString*> *)playlist;
+- (nullable NSArray<NSString*> *)playlist;
 
 /**
  * Returns the 0-based index of the currently playing item in the playlist.
@@ -659,3 +661,5 @@ typedef NS_ENUM(NSInteger, YTPlayerError) {
 - (void)removeWebView;
 
 @end
+
+NS_ASSUME_NONNULL_END
